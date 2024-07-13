@@ -1,0 +1,99 @@
+Main.java
+
+import java.util.Scanner;
+public static void main(String[] args) {
+System.out.println("введите римское число");
+Scanner sr=new Scanner(System.in);
+String r= sr.nextLine();
+System.out.println("вы ввели "+r);
+Roman1 roman1 = Roman1.value0f(r);
+int a=roman1.getArab();
+System.out.Println("римское число соответствует арабскому "+ a);
+}
+}
+
+
+Roman.java 
+
+public enum Roman1 { 
+I( arab:1),II( arab:2),III( arab:3),IV( arab:4),V( arab:5),VI( arab:6),VII( arab:7),VIII( arab:8),IX( arab:9),X( arab:10);
+private it arab: 
+Roman1(int arab){
+this.arab=arab;
+}
+public getArab(){
+return arab;
+}
+}
+
+
+
+
+Gpt Калькулятор с арабскими числами. 
+
+import java.util.Scanner;
+
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Введите первое число:");
+        int num1 = scanner.nextInt();
+
+        System.out.println("Введите второе число:");
+        int num2 = scanner.nextInt();
+
+        System.out.println("Выберите операцию (+, -, *, /):");
+        char operation = scanner.next().charAt(0);
+
+        int result = 0;
+        switch (operation) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                result = num1 / num2;
+                break;
+            default:
+                System.out.println("Ошибка: неверная операция");
+        }
+
+        System.out.println("Результат: " + result);
+    }
+}
+
+
+
+
+ Конвертация арабских чисел в римские Gpt.
+
+public String arabicToRoman(int number) {
+    if (number < 1 || number > 3999) {
+        throw new IllegalArgumentException("Number must be between 1 and 3999");
+    }
+
+    int[] arabicValues = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    String[] romanSymbols = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+
+    StringBuilder romanNumber = new StringBuilder();
+
+    for (int i = 0; i < arabicValues.length; i++) {
+        while (number >= arabicValues[i]) {
+            romanNumber.append(romanSymbols[i]);
+            number -= arabicValues[i];
+        }
+    }
+
+    return romanNumber.toString();
+}
+
+
+Пример использования: int arabicNumber = 2021;
+String romanNumber = arabicToRoman(arabicNumber);
+System.out.println(romanNumber); // Результат: MMXXI
